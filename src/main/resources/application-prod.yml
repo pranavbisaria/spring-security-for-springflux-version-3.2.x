@@ -1,0 +1,34 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_INITDB_SERVER}/?retryWrites=true&w=majority
+      database: ${MONGO_INITDB_DATABASE}
+
+  docker:
+    compose:
+      enabled: false
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  jwt:
+    validity:
+      accessToken: 3600000
+      refreshToken: 86400000
+    secret: ${TOKEN_SECRET}
+    issuer: ${TOKEN_ISSUER}
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+    path: /docs

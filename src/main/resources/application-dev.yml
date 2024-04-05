@@ -1,0 +1,30 @@
+spring:
+  docker:
+    compose:
+      enabled: true
+      lifecycle-management: START_AND_STOP
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+jwt:
+  validity:
+    accessToken: 3600000
+    refreshToken: 86400000
+  secret: I3iAdf34ssf7087a08GOLDdfFSIUha97a0cz9660KsmEQn7r
+  issuer: SecurityApplicationDemo
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+    path: /docs
